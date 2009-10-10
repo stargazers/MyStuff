@@ -52,7 +52,7 @@ input[type=submit]
 	width: 80%;
 }
 
-#login
+#login, #register
 {
 	text-align: center;
 }

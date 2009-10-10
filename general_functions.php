@@ -30,7 +30,7 @@
 		// If user do not have own folder, try to create it.
 		if(! file_exists( $path ) )
 		{
-			if( mkdir( $path, 0777 ) )
+			if(! mkdir( $path, 0777 ) )
 				echo 'Can\'t create user folder!';
 
 			return array();
@@ -107,6 +107,8 @@
 		echo '</tr>';
 		echo '</table>';
 
+		echo '<br />';
+		echo '<a href="register.php">Register</a>';
 		echo '</form>';
 		echo '</div>';
 	}
@@ -126,5 +128,17 @@
 		echo '</div>';
 		echo '</body>';
 		echo '</html>';
+	}
+
+	function show_error_msg()
+	{
+		if( isset( $_SESSION['errorMsg'] ) )
+		{
+			echo '<div id="error">';
+			echo $_SESSION['errorMsg'];
+			echo '</div>';
+
+			unset( $_SESSION['errorMsg'] );
+		}
 	}
 ?>
